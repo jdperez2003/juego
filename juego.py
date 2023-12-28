@@ -21,36 +21,36 @@ def resource_path(relative_path):
         return os.path.join(base_path, relative_path)
 
 # CARGAR IMAGEN DE FONDO 
-asset_background = resource_path('C:/Users/Usuario/Documents/game/fondo.png')
+asset_background = resource_path('assets/images/fondo.png')
 background = pygame.image.load(asset_background)
 
 # CARGAR ICONO DE VENTANA 
-asset_icon = resource_path('C:/Users/Usuario/Documents/game/assets-20231227T202958Z-001/assets/images/ufo.png')
+asset_icon = resource_path('assets/images/ufo.png')
 icon = pygame.image.load(asset_icon)
  
 # CARGAR SONIDO DE FONDO  
-asset_sound = resource_path('C:/Users/Usuario/Documents/game/assets-20231227T202958Z-001/assets/audios/background_music.mp3')
+asset_sound = resource_path('assets/audios/background_music.mp3')
 backgroud_sound = pygame.mixer.music.load(asset_sound)
 
 
 # CARGAR IMAGEN DEL JUGADOR 
-asset_playerimg = resource_path('C:/Users/Usuario/Documents/game/militar.png')
+asset_playerimg = resource_path('assets/images/militar.png')
 playerimg = pygame.image.load(asset_playerimg)
 
 # CARGAR IMAGEN DE BALA 
-asset_bulletimg = resource_path('C:/Users/Usuario/Documents/game/assets-20231227T202958Z-001/assets/images/bullet.png')
+asset_bulletimg = resource_path('assets/images/bullet.png')
 bulletimg = pygame.image.load(asset_bulletimg)
 
 # CARGAR FUENTE PARA TEXTO DE GAME OVER 
-asset_over_font = resource_path('C:/Users/Usuario/Documents/game/assets-20231227T202958Z-001/assets/fonts/RAVIE.TTF')
+asset_over_font = resource_path('assets/fonts/RAVIE.TTF')
 over_font = pygame.font.Font(asset_over_font)
  
 # CARGAR FUENTE PARA TEXTO DE PUNTAJE 
-asset_font = resource_path('C:/Users/Usuario/Documents/game/assets-20231227T202958Z-001/assets/fonts/comicbd.ttf')
+asset_font = resource_path('assets/fonts/comicbd.ttf')
 font = pygame.font.Font(asset_font, 32)
 
 # ESTABLECER TITULO DE VENTANA 
-pygame.display.set_caption('Invasión Espacial')
+pygame.display.set_caption('Invasión Militar')
 
 # ESTABLECER ICONO DE VENTANA 
 pygame.display.set_icon(icon)
@@ -79,10 +79,10 @@ no_of_enemies = 10
 # SE INICIALIZAN LAS VARIABLES PARA GUARDAR LAS POSICIONES DE LOS ENEMIGOS 
 for i in range(no_of_enemies):
     # SE CARGA LAS IMAGENES DE LOS ENEMIGOS 1 Y 2
-    enemy1 = resource_path('C:/Users/Usuario/Documents/game/helicop.png')
+    enemy1 = resource_path('assets/images/helicop.png')
     enemyimg.append(pygame.image.load(enemy1))
 
-    enemy2 = resource_path('C:/Users/Usuario/Documents/game/tanquecito.png')
+    enemy2 = resource_path('assets/images/tanquecito.png')
     enemyimg.append(pygame.image.load(enemy2))
 
 # SE ASIGNA UNA POSICION ALEATORIA EN X Y Y EN EL ENEMIGO 
@@ -90,8 +90,8 @@ for i in range(no_of_enemies):
     enemyY.append(random.randint(0,150))
 
 # SE ESTABLECE LA VELOCIDAD EN MOVIMIENTO DEL ENEMIGO EN X Y Y
-    enemyX_change.append(5)
-    enemyY_change.append(20)
+    enemyX_change.append(random.randint(5, 10))
+    enemyY_change.append(random.randint(10,20))
 
 # SE INICIALIZAN LAS VARIABLES PARA GUARDAR LA POSICION DE LA BALA
     bulletX = 0
@@ -134,7 +134,7 @@ for i in range(no_of_enemies):
         
     # FUNCION PARA MOSTRAR EL TEXTO DE GAME OVER EN PANTALLA
     def game_over_text():
-        over_text = over_font.render("Game Over", True, (255, 255, 255))
+        over_text = over_font.render("FIN DEL JUEGO", True, (255, 255, 255))
         text_rect = over_text.get_rect(
             center=(int(screen_width/2), int(screen_height/2)))
         screen.blit(over_text, text_rect)
